@@ -30,7 +30,12 @@ const routes: Array<RouteRecordRaw> = [
                             {
                                 path: '/sub02/sub0201',
                                 name: 'sub02sub0201',
-                                component: () => import('../views/sub0201.vue'),
+                                component: () => import('../views/Sub02Sub0201.vue'),
+                            },
+                            {
+                                path: '/sub02/sub0202',
+                                name: 'sub02sub0202',
+                                component: () => import('../views/sub02sub0202.vue'),
                             }
                         ]
                     },
@@ -38,7 +43,7 @@ const routes: Array<RouteRecordRaw> = [
                         path: '/sub03',
                         name: 'sub03',
                         component: () => import('../views/sub03.vue'),
-                    }
+                    },
                 ]
             },
         ],

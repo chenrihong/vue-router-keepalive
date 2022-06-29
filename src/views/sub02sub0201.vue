@@ -1,22 +1,23 @@
 <template>
     <div class="l01">
-        SUB 01:
+        SUB 0201:
         <input v-model="sub01" />
 
-        <button @click="closePage('sub01')"> Close (remove include item)</button>
+
+        <br />
+        <button @click="closePage('sub02sub0201')"> Close </button>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-
 import { useStore } from '../store/store'
 const sub01 = ref("")
 
 const closePage = (page: string) => {
+    useStore().pushExclude(page)
     useStore().removeInclude(page)
 }
-
 </script>
 
 <style lang="css">

@@ -13,6 +13,9 @@
                     <button @click="routerGo('/sub02/sub0201')">Sub02/sub0201</button>
                 </p>
                 <p>
+                    <button @click="routerGo('/sub02/sub0202')">Sub02/sub0202</button>
+                </p>
+                <p>
                     <button @click="routerGo('/sub03')">Sub03</button>
                 </p>
             </div>

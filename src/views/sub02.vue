@@ -1,25 +1,60 @@
 <template>
     <div class="l01">
         SUB 02:
-        <input v-model="sub01" />
+        <br />
+        include = `{{ include }}`
+        <br />
+
+        exclude = `{{ exclude }}`
+        <br />
+
+        第三级路由父组件，keep alive 用 include和exclude 均无效。
+
+        <input v-model="sub02" />
 
         <hr>
 
-
         <router-view v-slot="{ Component }">
             <transition>
-                <keep-alive exclude="sub0201">
+                <keep-alive :include="include">
                     <component :is="Component" />
                 </keep-alive>
             </transition>
         </router-view>
 
+        <!-- <router-view v-slot="{ Component }">
+            <transition>
+                <keep-alive :exclude="exclude" :include="include">
+                    <component :is="Component" />
+                </keep-alive>
+            </transition>
+        </router-view> -->
+
+        <!-- <router-view></router-view> -->
+
     </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-const sub01 = ref("")
+import { ref, watch } from 'vue';
+import { useStore } from '../store/store'
+
+const sub02 = ref("")
+const include = ref<Array<string>>([])
+const exclude = ref<Array<string>>([])
+
+const st = useStore();
+include.value = st.getIncludes;
+exclude.value = st.getExcludes;
+
+watch(() => st.getIncludes, (newval) => {
+    include.value = newval;
+})
+watch(() => st.getExcludes, (newval) => {
+    exclude.value = newval;
+})
+
+
 </script>
 
 <style lang="css">
