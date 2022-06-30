@@ -8,16 +8,13 @@
         exclude = `{{ exclude }}`
         <br />
 
-        第三级路由父组件，keep alive 用 include和exclude 均无效。
-
         <input v-model="sub02" />
-
         <hr>
 
-        <router-view v-slot="{ Component }">
+        <router-view v-slot="{ Component, route }">
             <transition>
                 <keep-alive :include="include">
-                    <component :is="Component" />
+                    <component :is="Component" :key="route.fullPath" />
                 </keep-alive>
             </transition>
         </router-view>

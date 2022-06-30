@@ -13,6 +13,12 @@
                     <button @click="routerGo('/sub02/sub0201')">Sub02/sub0201</button>
                 </p>
                 <p>
+                    <button @click="routerGo('/sub02/sub0201?t=1')">Sub02/sub0201?t=1</button>
+                </p>
+                <p>
+                    <button @click="routerGo('/sub02/sub0201?t=2')">Sub02/sub0201?t=2</button>
+                </p>
+                <p>
                     <button @click="routerGo('/sub02/sub0202')">Sub02/sub0202</button>
                 </p>
                 <p>
@@ -30,7 +36,7 @@ import { useStore } from '../store/store'
 
 const router = useRouter();
 const routerGo = (url: string) => {
-    let x = url.replace(/\//gi, '')
+    let x = url.replace(/\//gi, '').split('?')[0]
     useStore().pushInclude(x);
     router.push(url);
 }
