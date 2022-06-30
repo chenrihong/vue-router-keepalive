@@ -1,9 +1,11 @@
 import { defineStore } from "pinia"
+import { RouteLocationNormalizedLoaded } from "vue-router";
 
 export const useStore = defineStore('main', {
     state: () => ({
         includeComps: [] as Array<string>,
         excludeComps: [] as Array<string>,
+        openedPages: [] as Array<string>,
     }),
     actions: {
         pushInclude(str: string) {
@@ -25,6 +27,16 @@ export const useStore = defineStore('main', {
             let set01 = new Set<string>(this.excludeComps);
             set01.delete(str);
             this.excludeComps = Array.from(set01);
+        },
+        pushOpenedPage(str: string) {
+            let set01 = new Set<string>(this.openedPages);
+            set01.add(str);
+            this.openedPages = Array.from(set01);
+        },
+        removeOpenedPage(str: string) {
+            let set01 = new Set<string>(this.openedPages);
+            set01.delete(str);
+            this.openedPages = Array.from(set01);
         }
     },
     getters: {
@@ -34,5 +46,8 @@ export const useStore = defineStore('main', {
         getExcludes(state) {
             return state.excludeComps;
         },
+        getOpenedPages(state) {
+            return state.openedPages;
+        }
     },
 })

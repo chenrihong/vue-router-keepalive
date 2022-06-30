@@ -1,6 +1,6 @@
 <template>
     <div class="l01">
-        SUB 0202:
+        sub02sub0202:
         <input v-model="sub01" />
         <br />
         <button @click="closePage('sub02sub0202')"> Close </button>

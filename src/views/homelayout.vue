@@ -24,6 +24,9 @@
                 <p>
                     <button @click="routerGo('/sub03')">Sub03</button>
                 </p>
+                <p>
+                    <button @click="routerGo('/demo')">demo</button>
+                </p>
             </div>
             <router-view style="flex:1"></router-view>
         </div>

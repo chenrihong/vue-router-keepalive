@@ -1,6 +1,6 @@
 <template>
     <div class="l01">
-        SUB 0201:
+        sub02sub0201:
         <input v-model="sub01" />
 
 
@@ -11,12 +11,16 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { useRoute } from 'vue-router';
 import { useStore } from '../store/store'
 const sub01 = ref("")
+const route = useRoute();
 
 const closePage = (page: string) => {
-    useStore().pushExclude(page)
+    console.log(route.fullPath);
+    // useStore().pushExclude(page)
     useStore().removeInclude(page)
+    useStore().removeOpenedPage(route.fullPath)
 }
 </script>
 
