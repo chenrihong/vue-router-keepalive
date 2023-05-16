@@ -1,6 +1,6 @@
 <template>
     <div class="h01">
-        <h1> HomeLayout:</h1>
+        <h5> 结论：支持路由的缓存、也支持多级子路由的缓存。如果重用某路由，最好的做法是用 addRoute 的方式去新增一个虚路由。因为 include 这个参数是对组件名称起作用。 </h5>
         <div class="rv">
             <div class="nav">
                 <p>

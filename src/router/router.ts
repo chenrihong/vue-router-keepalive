@@ -49,7 +49,7 @@ const routes: Array<RouteRecordRaw> = [
                                 name: 'sub02sub0202',
                                 component: () => import('../views/sub02sub0202.vue'),
                                 meta: {
-                                    keepalive: false
+                                    keepalive: true
                                 }
                             }
                         ]

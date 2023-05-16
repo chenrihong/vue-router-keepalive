@@ -14,22 +14,22 @@
         {{ fnComps }}
         <hr />
 
-        <router-view v-slot="{ Component, route }">
+        <!-- <router-view v-slot="{ Component, route }">
             <transition>
                 <keep-alive :include="include">
                     <component :is="Component" :key="fnNewKey(route)" />
                 </keep-alive>
             </transition>
-        </router-view>
+        </router-view> -->
 
 
-        <!-- <router-view v-slot="{ Component }">
+        <router-view v-slot="{ Component, route }">
             <transition>
                 <keep-alive :exclude="exclude" :include="include">
-                    <component :is="Component" />
+                    <component :is="Component" :key="route.fullPath" />
                 </keep-alive>
             </transition>
-        </router-view> -->
+        </router-view>
 
         <!-- <router-view></router-view> -->
 
